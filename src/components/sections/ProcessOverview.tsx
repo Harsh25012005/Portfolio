@@ -1,48 +1,61 @@
-import { Card } from '@/components/ui/card';
-import { Search, Lightbulb, Palette, TestTube, Rocket } from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import { Search, Lightbulb, Palette, TestTube, Rocket } from "lucide-react";
 
 const ProcessOverview = () => {
   const processSteps = [
     {
-      step: '01',
+      step: "01",
       icon: Search,
-      title: 'Discovery & Research',
-      description: 'Understanding your business goals, user needs, and market landscape through comprehensive research and stakeholder interviews.',
-      deliverables: ['User Research', 'Competitive Analysis', 'Requirements Gathering'],
-      duration: '1-2 weeks'
+      title: "Discovery & Research",
+      description:
+        "Understanding your business goals, user needs, and market landscape through comprehensive research and stakeholder interviews.",
+      deliverables: [
+        "User Research",
+        "Competitive Analysis",
+        "Requirements Gathering",
+      ],
+      duration: "1-2 weeks",
     },
     {
-      step: '02',
+      step: "02",
       icon: Lightbulb,
-      title: 'Strategy & Planning',
-      description: 'Developing a clear design strategy, information architecture, and user journey maps based on research insights.',
-      deliverables: ['Design Strategy', 'User Personas', 'Information Architecture'],
-      duration: '1 week'
+      title: "Strategy & Planning",
+      description:
+        "Developing a clear design strategy, information architecture, and user journey maps based on research insights.",
+      deliverables: [
+        "Design Strategy",
+        "User Personas",
+        "Information Architecture",
+      ],
+      duration: "1 week",
     },
     {
-      step: '03',
+      step: "03",
       icon: Palette,
-      title: 'Design & Prototyping',
-      description: 'Creating wireframes, high-fidelity designs, and interactive prototypes that bring your vision to life.',
-      deliverables: ['Wireframes', 'Visual Designs', 'Interactive Prototypes'],
-      duration: '3-4 weeks'
+      title: "Design & Prototyping",
+      description:
+        "Creating wireframes, high-fidelity designs, and interactive prototypes that bring your vision to life.",
+      deliverables: ["Wireframes", "Visual Designs", "Interactive Prototypes"],
+      duration: "3-4 weeks",
     },
     {
-      step: '04',
+      step: "04",
       icon: TestTube,
-      title: 'Testing & Iteration',
-      description: 'Validating designs through user testing, gathering feedback, and refining solutions for optimal user experience.',
-      deliverables: ['Usability Testing', 'Design Iterations', 'Test Reports'],
-      duration: '2 weeks'
+      title: "Testing & Iteration",
+      description:
+        "Validating designs through user testing, gathering feedback, and refining solutions for optimal user experience.",
+      deliverables: ["Usability Testing", "Design Iterations", "Test Reports"],
+      duration: "2 weeks",
     },
     {
-      step: '05',
+      step: "05",
       icon: Rocket,
-      title: 'Launch & Support',
-      description: 'Delivering final designs, assets, and documentation for seamless development handoff and ongoing support.',
-      deliverables: ['Design Assets', 'Style Guide', 'Developer Handoff'],
-      duration: '1 week'
-    }
+      title: "Launch & Support",
+      description:
+        "Delivering final designs, assets, and documentation for seamless development handoff and ongoing support.",
+      deliverables: ["Design Assets", "Style Guide", "Developer Handoff"],
+      duration: "1 week",
+    },
   ];
 
   return (
@@ -51,12 +64,13 @@ const ProcessOverview = () => {
         <div className="space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-4xl lg:text-5xl font-bold">
+            <h2 className="text-[34px] font-bold">
               My Design <span className="brand-accent">Process</span>
             </h2>
-            <p className="text-xl text-body max-w-3xl mx-auto leading-relaxed">
-              A proven methodology that ensures every project delivers exceptional 
-              results through user-centered design and iterative improvement.
+            <p className="text-[18px] text-body max-w-3xl mx-auto leading-relaxed">
+              A proven methodology that ensures every project delivers
+              exceptional results through user-centered design and iterative
+              improvement.
             </p>
           </div>
 
@@ -88,15 +102,19 @@ const ProcessOverview = () => {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-4">
-                      {step.deliverables.map((deliverable, deliverableIndex) => (
-                        <div 
-                          key={deliverableIndex}
-                          className="flex items-center space-x-2 p-3 bg-muted/50 rounded-lg"
-                        >
-                          <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                          <span className="text-sm font-medium">{deliverable}</span>
-                        </div>
-                      ))}
+                      {step.deliverables.map(
+                        (deliverable, deliverableIndex) => (
+                          <div
+                            key={deliverableIndex}
+                            className="flex items-center space-x-2 p-3 bg-muted/50 rounded-lg"
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                            <span className="text-sm font-medium">
+                              {deliverable}
+                            </span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>

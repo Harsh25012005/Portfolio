@@ -35,10 +35,10 @@ const ServicesOverview = () => {
         <div className="space-y-20">
           {/* Section Header */}
           <div className="space-y-6">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+            <h2 className="text-[34px] font-bold text-foreground leading-tight">
               What I <span className="text-primary">Do</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
+            <p className="text-[18px] text-muted-foreground max-w-2xl">
               I help businesses create exceptional digital experiences through
               thoughtful design and user research.
             </p>

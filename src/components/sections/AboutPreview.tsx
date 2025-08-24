@@ -36,10 +36,10 @@ const AboutPreview = () => {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+              <h2 className="text-[34px] font-bold text-foreground leading-tight">
                 About <span className="text-primary">Me</span>
               </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-[18px] text-muted-foreground leading-relaxed">
                 I'm a passionate UI Designer with over 5+ years of experience
                 creating meaningful digital experiences that solve real problems
                 and drive business growth.

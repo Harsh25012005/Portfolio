@@ -10,12 +10,12 @@ const CallToAction = () => {
         <div className="text-center space-y-12">
           {/* Header */}
           <div className="space-y-6">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+            <h2 className="text-[34px] font-bold text-foreground leading-tight">
               Let's Work
               <br />
               <span className="text-primary">Together</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[18px] text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Ready to create something amazing? Let's discuss your project and
               bring your vision to life.
             </p>

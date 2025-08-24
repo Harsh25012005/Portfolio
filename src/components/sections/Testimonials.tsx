@@ -24,7 +24,7 @@ const Testimonials = () => {
         <div className="space-y-20">
           {/* Section Header */}
           <div className="space-y-6">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+            <h2 className="text-[34px] font-bold text-foreground leading-tight">
               What Clients <span className="text-primary">Say</span>
             </h2>
           </div>
