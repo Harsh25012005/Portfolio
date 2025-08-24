@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useTheme } from 'next-themes';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Sun, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,90 +16,94 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold brand-accent">
-            UX
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 p-4">
+      <nav className="container mx-auto max-w-6xl">
+        <div className="bg-background/80 backdrop-blur-md border border-border rounded-full shadow-lg p-3 pl-6">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link to="/" className="text-2xl font-bold text-foreground">
+              HV
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={cn(
-                  'nav-link',
-                  isActive(item.path) ? 'active' : ''
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={cn(
+                      "relative flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors font-medium",
+                      isActive(item.path) && "text-foreground"
+                    )}
+                  >
+                    {isActive(item.path) && (
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    )}
+                    <span>{item.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            {mounted && (
+            {/* Theme Toggle */}
+            <div className="flex items-center">
+              {mounted && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="w-10 h-10 rounded-full hover:bg-muted transition-colors"
+                >
+                  <Sun className="h-5 w-5 text-muted-foreground" />
+                </Button>
+              )}
+
+              {/* Mobile Menu Button */}
               <Button
                 variant="ghost"
                 size="icon"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="transition-smooth"
+                className="md:hidden ml-2 w-10 h-10 rounded-full hover:bg-muted"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {theme === 'dark' ? (
-                  <Sun className="h-5 w-5" />
+                {isMenuOpen ? (
+                  <X className="h-5 w-5 text-muted-foreground" />
                 ) : (
-                  <Moon className="h-5 w-5" />
+                  <Menu className="h-5 w-5 text-muted-foreground" />
                 )}
               </Button>
-            )}
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border">
-            <div className="container mx-auto px-4 py-4">
+          <div className="md:hidden mt-2">
+            <div className="bg-background/80 backdrop-blur-xl border border-border rounded-2xl shadow-lg px-6 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
                     className={cn(
-                      'nav-link py-2',
-                      isActive(item.path) ? 'active' : ''
+                      "flex items-center space-x-3 py-2 text-muted-foreground hover:text-foreground transition-colors font-medium",
+                      isActive(item.path) && "text-foreground"
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.name}
+                    {isActive(item.path) && (
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    )}
+                    <span>{item.name}</span>
                   </Link>
                 ))}
               </div>
