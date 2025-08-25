@@ -46,8 +46,8 @@ const Navigation = () => {
           className={cn(
             "transition-all duration-700 ease-in-out rounded-full",
             isScrolled
-              ? "bg-background/80 backdrop-blur-md border border-border shadow-lg p-1 pl-3 pr-3 mx-8 scale-95"
-              : "bg-transparent p-4 pl-6 pr-3 mx-0 scale-100"
+              ? "bg-background/80 backdrop-blur-md border border-border shadow-lg p-2 pl-5 pr-3 mx-10 scale-95"
+              : "bg-transparent p-2 pl-4 pr-2 mx-28 scale-100"
           )}
         >
           <div className="flex items-center justify-between">
