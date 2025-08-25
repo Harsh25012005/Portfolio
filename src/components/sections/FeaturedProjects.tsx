@@ -112,7 +112,7 @@ const FeaturedProjects = () => {
             ))}
           </div>
 
-          {/* View All Projects Button */}
+          {/* View All Projects Button
           <div className="text-center pt-12">
             <Link
               to="/projects"
@@ -121,7 +121,7 @@ const FeaturedProjects = () => {
               <span>View All Projects</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 

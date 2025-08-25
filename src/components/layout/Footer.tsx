@@ -1,60 +1,84 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Code2, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:hello@designer.com', label: 'Email' },
+    { 
+      name: 'GitHub', 
+      href: 'https://github.com/harsh25012005',
+      icon: <Github className="w-4 h-4" />
+    },
+    { 
+      name: 'LinkedIn', 
+      href: 'https://linkedin.com/in/harsh-vaghela-9b0b3b1b2',
+      icon: <Linkedin className="w-4 h-4" />
+    },
+    { 
+      name: 'Twitter', 
+      href: 'https://twitter.com/harsh25012005',
+      icon: <Twitter className="w-4 h-4" />
+    },
+    { 
+      name: 'Email', 
+      href: 'mailto:contact@harshvaghela.tech',
+      icon: <Mail className="w-4 h-4" />
+    },
   ];
 
-  const quickLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
-    { name: 'Blog', path: '/blog' },
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    // { name: 'About', path: '/about' },
+    // { name: 'Projects', path: '/projects' },
+    // { name: 'Services', path: '/services' },
+    // { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand & Description */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold brand-accent">UX Designer</h3>
-            <p className="text-body text-sm leading-relaxed">
-              Crafting purpose-driven experiences that inspire & engage. 
-              Building pixel-perfect digital solutions that drive results.
+    <footer className="bg-background border-t border-border/40">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Brand & Social */}
+          <div className="md:col-span-5 space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-lg flex items-center justify-center">
+                <span className="text-lg font-bold text-primary-foreground">HV</span>
+              </div>
+              <span className="text-xl font-bold text-foreground">
+                Harsh Vaghela
+              </span>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
+              Full-stack developer and UI/UX enthusiast. I build exceptional digital experiences with modern technologies and clean code.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
-                  key={social.label}
+                  key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full surface-elevated hover:bg-primary hover:text-primary-foreground transition-smooth"
-                  aria-label={social.label}
+                  className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-accent/50"
+                  aria-label={social.name}
                 >
-                  <social.icon className="h-4 w-4" />
+                  {social.icon}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
+          {/* Navigation */}
+          <div className="md:col-span-3 md:col-start-7">
+            <h4 className="text-sm font-medium text-foreground mb-4">Navigation</h4>
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-body text-sm hover:text-primary transition-smooth"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="text-muted-foreground text-sm hover:text-foreground transition-colors hover:underline underline-offset-4"
                   >
                     {link.name}
                   </Link>
@@ -63,31 +87,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="font-semibold">Get in Touch</h4>
-            <div className="space-y-2 text-sm text-body">
-              <p>Available for freelance projects</p>
-              <p>Let's create something amazing together</p>
-            </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth text-sm font-medium"
-            >
-              <span>Start a project</span>
-              <span>→</span>
-            </Link>
+          {/* Contact */}
+          <div className="md:col-span-4 md:col-start-10">
+            <h4 className="text-sm font-medium text-foreground mb-4">Get in Touch</h4>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh1505@gmail.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors hover:underline underline-offset-4 flex items-start md:items-center space-x-2"
+                >
+                  <Mail className="w-4 h-4 mt-1 md:mt-0 flex-shrink-0" />
+                  <span>vaghelaharsh1505@gmail.com</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-body text-sm">
-            © {currentYear} UX Designer Portfolio. All rights reserved.
+        <div className="mt-16 pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-muted-foreground text-sm text-center md:text-left">
+            &copy; {currentYear} Harsh Vaghela. All rights reserved.
           </p>
-          <div className="flex items-center space-x-1 text-body text-sm">
-            <span>Made with</span>
-            <Heart className="h-4 w-4 text-red-500" />
-            <span>using modern web technologies</span>
+          <div className="flex items-center space-x-1">
+            <span className="text-muted-foreground text-sm">
+              Made <Heart className="inline w-3.5 h-3.5 text-red-500 fill-current" /> by Harsh
+            </span>
           </div>
         </div>
       </div>

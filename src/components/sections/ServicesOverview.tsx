@@ -79,7 +79,7 @@ const ServicesOverview = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center pt-16">
+          {/* <div className="text-center pt-16">
             <Link
               to="/services"
               className="inline-flex items-center space-x-2 text-lg font-medium text-foreground hover:text-primary transition-colors group"
@@ -87,7 +87,7 @@ const ServicesOverview = () => {
               <span>View All Services</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

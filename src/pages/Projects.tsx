@@ -1,198 +1,221 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+// Animation variants
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('all');
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const categories = ['all', 'web design', 'mobile app', 'dashboard', 'e-commerce'];
+  const categories = [
+    { id: 'all', name: 'All' },
+    { id: 'production', name: 'Production' },
+    { id: 'sound-design', name: 'Sound Design' },
+    { id: 'music-video', name: 'Music Video' },
+    { id: 'tv-show', name: 'TV Show' },
+  ];
 
   const projects = [
     {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A modern e-commerce platform with focus on user experience and conversion optimization.',
-      image: '/api/placeholder/600/400',
-      category: 'e-commerce',
-      tags: ['UX Design', 'UI Design', 'Prototyping'],
-      year: '2024',
-      client: 'RetailCorp',
-      status: 'Completed'
+      id: '01',
+      title: 'Dreamers Picnic',
+      category: 'production',
+      status: 'Full case',
+      images: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&auto=format&fit=crop&q=80'
+      ]
     },
     {
-      id: 2,
-      title: 'Healthcare Dashboard',
-      description: 'Comprehensive dashboard for healthcare professionals to manage patient data and appointments.',
-      image: '/api/placeholder/600/400',
-      category: 'dashboard',
-      tags: ['Dashboard Design', 'Data Visualization', 'User Research'],
-      year: '2024',
-      client: 'HealthTech Inc.',
-      status: 'Completed'
+      id: '02',
+      title: 'Echoes of the Mountains',
+      category: 'sound-design',
+      status: 'Full case',
+      images: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&auto=format&fit=crop&q=80'
+      ]
     },
     {
-      id: 3,
-      title: 'Banking Mobile App',
-      description: 'Intuitive mobile banking application with enhanced security and user-friendly interface.',
-      image: '/api/placeholder/600/400',
-      category: 'mobile app',
-      tags: ['Mobile Design', 'Financial UX', 'Security Design'],
-      year: '2023',
-      client: 'SecureBank',
-      status: 'Completed'
-    },
-    {
-      id: 4,
-      title: 'Creative Agency Website',
-      description: 'Modern website redesign for a creative agency showcasing their portfolio and services.',
-      image: '/api/placeholder/600/400',
-      category: 'web design',
-      tags: ['Web Design', 'Branding', 'Animation'],
-      year: '2023',
-      client: 'Creative Studio',
-      status: 'Completed'
-    },
-    {
-      id: 5,
-      title: 'SaaS Analytics Platform',
-      description: 'Complex analytics dashboard with real-time data visualization and reporting features.',
-      image: '/api/placeholder/600/400',
-      category: 'dashboard',
-      tags: ['SaaS Design', 'Analytics', 'Data Viz'],
-      year: '2023',
-      client: 'DataCorp',
-      status: 'Completed'
-    },
-    {
-      id: 6,
-      title: 'Food Delivery App',
-      description: 'User-centric food delivery application with seamless ordering and tracking experience.',
-      image: '/api/placeholder/600/400',
-      category: 'mobile app',
-      tags: ['Mobile UX', 'Food Tech', 'Location Services'],
-      year: '2022',
-      client: 'FoodieApp',
-      status: 'Completed'
+      id: '03',
+      title: 'The Hidden Petals',
+      category: 'music-video',
+      status: 'Full case',
+      images: [
+        'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&auto=format&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&auto=format&fit=crop&q=80'
+      ]
     }
   ];
 
-  const filteredProjects = selectedCategory === 'all' 
+  const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+    : projects.filter(project => project.category === activeFilter);
+
 
   return (
-    <main className="pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        <div className={`space-y-12 ${isVisible ? 'fade-in' : 'opacity-0'}`}>
-          {/* Header */}
-          <section className="text-center space-y-6">
-            <h1 className="text-display font-bold">
-              Selected <span className="brand-accent">Projects</span>
-            </h1>
-            <p className="text-xl text-body max-w-3xl mx-auto leading-relaxed">
-              Here's a curated selection showcasing my expertise and the achieved results.
-            </p>
-          </section>
+    <motion.main 
+      className="min-h-screen surface-elevated text-foreground"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Header Section */}
+        <motion.header 
+          ref={headerRef}
+          className="text-center mb-20"
+          initial={{ y: 30, opacity: 0 }}
+          animate={isHeaderInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h1 className="hero-text mb-6">
+            Featured <span className="brand-accent">Projects</span>
+          </h1>
+          <p className="text-body text-xl max-w-3xl mx-auto leading-relaxed">
+            Explore our carefully curated collection of creative works that showcase innovation, 
+            craftsmanship, and attention to detail across various disciplines.
+          </p>
+        </motion.header>
 
-          {/* Category Filter */}
-          <section className="flex flex-wrap justify-center gap-2">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setSelectedCategory(category)}
-                className="capitalize"
+        {/* Category Navigation */}
+        <motion.nav 
+          className="flex justify-center gap-8 mb-16"
+          initial={{ y: 20, opacity: 0 }}
+          animate={isHeaderInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setActiveFilter(category.id)}
+              className={cn(
+                'nav-link text-lg font-medium py-2',
+                activeFilter === category.id ? 'active' : ''
+              )}
+            >
+              {category.name}
+            </button>
+          ))}
+        </motion.nav>
+
+        {/* Projects Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
+          variants={container}
+          initial="hidden"
+          animate={isHeaderInView ? "show" : "hidden"}
+        >
+          <AnimatePresence mode="wait">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
               >
-                {category}
-              </Button>
-            ))}
-          </section>
-
-          {/* Projects Grid */}
-          <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <Card key={project.id} className="project-card group">
-                <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1580582294-7c09b3e67b2d?w=600&h=400&fit=crop&crop=faces"
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                  />
-                </div>
-                
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary" className="text-xs">
-                      {project.year}
-                    </Badge>
-                    <span className="text-xs text-muted-foreground">{project.client}</span>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-smooth">
-                      {project.title}
-                    </h3>
-                    <p className="text-body text-sm leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center justify-between pt-4">
-                    <Link 
-                      to={`/projects/${project.id}`}
-                      className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth text-sm font-medium"
-                    >
-                      <span>View Details</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                    
-                    <div className="flex items-center space-x-2">
-                      <Button size="icon" variant="ghost" className="h-8 w-8">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                      <Button size="icon" variant="ghost" className="h-8 w-8">
-                        <Github className="h-4 w-4" />
-                      </Button>
+                {/* Project Card */}
+                <div className="project-card surface-elevated border border-border/20 p-6 h-full">
+                  {/* Project Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div>
+                      <span className="text-sm font-mono text-muted-foreground tracking-wider">
+                        {project.id}
+                      </span>
+                      <h3 className="text-xl font-bold text-foreground mt-1 group-hover:brand-accent transition-smooth">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <span>{project.status}</span>
+                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </section>
 
-          {/* CTA Section */}
-          <section className="text-center space-y-6 py-12">
-            <h2 className="text-3xl font-bold">Interested in Working Together?</h2>
-            <p className="text-xl text-body max-w-2xl mx-auto">
-              I'm always excited to take on new challenges and create impactful digital experiences.
-            </p>
-            <Link to="/contact">
-              <Button size="lg" className="px-8">
-                Start a Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </section>
-        </div>
+                  {/* Project Images Grid */}
+                  <div className="grid grid-cols-2 gap-2 mb-4">
+                    {project.images.slice(0, 4).map((image, imageIndex) => (
+                      <motion.div
+                        key={imageIndex}
+                        className="aspect-square overflow-hidden rounded-lg surface-subtle"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} ${imageIndex + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Project Category */}
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium surface-subtle text-body border border-border/30">
+                      {project.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                    </span>
+                    <motion.button
+                      className="w-8 h-8 rounded-full surface-subtle border border-border/30 flex items-center justify-center text-muted-foreground hover:brand-accent hover:border-primary transition-smooth"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Call to Action */}
+        <motion.section 
+          className="text-center surface-subtle rounded-3xl p-16 border border-border/20"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to Create Something
+            <span className="block brand-accent">Extraordinary?</span>
+          </h2>
+          <p className="text-body text-lg mb-8 max-w-2xl mx-auto">
+            Let's collaborate and bring your vision to life with the same passion and attention to detail you see in our work.
+          </p>
+          <Button 
+            size="lg" 
+            className="px-10 py-4 text-lg font-medium bg-primary hover:bg-primary/90 text-primary-foreground rounded-full transition-bounce group"
+          >
+            Start Your Project
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.section>
       </div>
-    </main>
+    </motion.main>
   );
 };
 
