@@ -22,7 +22,7 @@ const Footer = () => {
     },
     { 
       name: 'Email', 
-      href: 'mailto:contact@harshvaghela.tech',
+      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=Project%20Inquiry&body=Hi%20Harsh,%0D%0A%0D%0AI%27m%20interested%20in%20working%20with%20you%20on%20a%20project.%20Here%20are%20the%20details:%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AProject%20Type:%20%0D%0ATimeline:%20%0D%0ABudget%20Range:%20%0D%0A%0D%0AProject%20Description:%0D%0A%0D%0A%0D%0ABest%20regards,',
       icon: <Mail className="w-4 h-4" />
     },
   ];
@@ -93,13 +93,13 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh1505@gmail.com" 
+                  href='https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=Project%20Inquiry&body=Hi%20Harsh,%0D%0A%0D%0AI%27m%20interested%20in%20working%20with%20you%20on%20a%20project.%20Here%20are%20the%20details:%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AProject%20Type:%20%0D%0ATimeline:%20%0D%0ABudget%20Range:%20%0D%0A%0D%0AProject%20Description:%0D%0A%0D%0A%0D%0ABest%20regards,'
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors hover:underline underline-offset-4 flex items-start md:items-center space-x-2"
                 >
                   <Mail className="w-4 h-4 mt-1 md:mt-0 flex-shrink-0" />
-                  <span>vaghelaharsh1505@gmail.com</span>
+                  <span>vaghelaharsh0807@gmail.com</span>
                 </a>
               </li>
             </ul>

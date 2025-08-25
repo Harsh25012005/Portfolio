@@ -6,38 +6,38 @@ const FeaturedProjects = () => {
   const featuredProjects = [
     {
       id: 1,
-      title: "Aora",
-      category: "Development",
+      title: "Nike AR Experience",
+      category: "Mobile App Design",
       year: "2024",
-      image: "/api/placeholder/400/300",
-      bgColor: "bg-gradient-to-br from-yellow-200 to-yellow-100",
+      image: "/src/assets/nike-shoe.jpg",
+      bgColor: "bg-gradient-to-br from-gray-900 to-gray-800",
       size: "large",
     },
     {
       id: 2,
-      title: "Code Screenshot",
-      category: "Development & Design",
+      title: "MacBook Air Showcase",
+      category: "Product Design",
       year: "2024",
-      image: "/api/placeholder/400/300",
-      bgColor: "bg-gradient-to-br from-pink-200 to-pink-100",
+      image: "/src/assets/MacBook Air (2022).png",
+      bgColor: "bg-gradient-to-br from-slate-200 to-slate-100",
       size: "large",
     },
     {
       id: 3,
-      title: "iPhone 15 Pro",
-      category: "Development & Design",
+      title: "Furniture Design App",
+      category: "UI/UX Design",
       year: "2024",
-      image: "/api/placeholder/400/300",
-      bgColor: "bg-gradient-to-br from-gray-200 to-gray-100",
+      image: "/src/assets/furniture-app.jpg",
+      bgColor: "bg-gradient-to-br from-blue-200 to-blue-100",
       size: "large",
     },
     {
       id: 4,
-      title: "Ochi Design",
-      category: "Development & Design",
+      title: "MacBook Pro Concept",
+      category: "Product Visualization",
       year: "2024",
-      image: "/api/placeholder/400/300",
-      bgColor: "bg-gradient-to-br from-green-200 to-green-100",
+      image: "/src/assets/MacBook.png",
+      bgColor: "bg-gradient-to-br from-gray-300 to-gray-200",
       size: "large",
     },
   ];
@@ -77,15 +77,23 @@ const FeaturedProjects = () => {
                   {/* Content */}
                   <div className="relative">
                     {/* Project preview area */}
-                    <div className="aspect-[16/10] mb-6 border border-border flex items-center justify-center overflow-hidden">
-                      <div className="relative w-full h-full flex items-center justify-center rounded-xl">
-                        {/* Project title display */}
-                        <div className="text-center">
-                          <div className="text-muted-foreground text-2xl font-bold mb-2">
-                            {project.title}
+                    <div className="aspect-[16/10] mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        {project.image && project.image !== "/api/placeholder/400/300" ? (
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover rounded-xl"
+                          />
+                        ) : (
+                          /* Project title display for placeholder projects */
+                          <div className="text-center">
+                            <div className="text-muted-foreground text-2xl font-bold mb-2">
+                              {project.title}
+                            </div>
+                            <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto opacity-60" />
                           </div>
-                          <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto opacity-60" />
-                        </div>
+                        )}
                       </div>
                     </div>
 

@@ -18,7 +18,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,16 +38,16 @@ const Navigation = () => {
     <header className="fixed top-0 left-0 right-0 z-50 p-4">
       <nav
         className={cn(
-          "container mx-auto transition-all duration-300",
-          isScrolled ? "max-w-4xl" : "max-w-6xl"
+          "container mx-auto transition-all duration-700 ease-in-out",
+          isScrolled ? "max-w-2xl px-2" : "max-w-full px-8"
         )}
       >
         <div
           className={cn(
-            "transition-all duration-300 rounded-full p-2 pl-5",
+            "transition-all duration-700 ease-in-out rounded-full",
             isScrolled
-              ? "bg-background/80 backdrop-blur-md border border-border shadow-lg"
-              : "bg-transparent"
+              ? "bg-background/80 backdrop-blur-md border border-border shadow-lg p-1 pl-3 pr-3 mx-8 scale-95"
+              : "bg-transparent p-4 pl-6 pr-3 mx-0 scale-100"
           )}
         >
           <div className="flex items-center justify-between">
@@ -117,9 +117,7 @@ const Navigation = () => {
             <div
               className={cn(
                 "rounded-2xl px-6 py-4 transition-all duration-300",
-                isScrolled
-                  ? "bg-background/80 backdrop-blur-xl border border-border shadow-lg"
-                  : "bg-background/90 backdrop-blur-sm border border-border/50"
+                "bg-background/80 backdrop-blur-xl border border-border shadow-lg"
               )}
             >
               <div className="flex flex-col space-y-4">
