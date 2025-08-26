@@ -10,6 +10,7 @@ import macbookAir from "../assets/MacBook Air (2022).png";
 import furnitureApp from "../assets/furniture-app.jpg";
 import macbookPro from "../assets/MacBook.png";
 import cryptoApp from "../assets/crypto-app.png";
+import skillBit from "../assets/SkillBit.png";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -274,68 +275,67 @@ const ProjectDetail = () => {
           role: "Design Director, Tech Startup"
         }
       },
-      
-      '5': {
-        id: 5,
-        title: 'Crypto Trading App',
+      '6': {
+        id: 6,
+        title: 'Skillift Learning Platform',
         client: 'Personal Project',
-        year: '2024',
-        duration: '12 Hours',
+        year: '2025',
+        duration: 'Less than 14 Hours',
         role: 'UI/UX Designer',
-        team: ['UX Designer', 'UI Designer', 'Frontend Developer', 'Blockchain Developer'],
+        team: ['UX Designer', 'UI Designer', 'Frontend Developer', 'Education Specialist'],
         status: 'Completed',
-        category: 'Mobile App Design',
+        category: 'EdTech Platform',
         
-        overview: 'A modern cryptocurrency trading application designed to simplify digital asset management for both beginners and experienced traders. The app features a sleek dark interface with vibrant green accents that reflect the crypto trading aesthetic. Built with intuitive navigation and real-time market data visualization to help users make informed trading decisions.',
+        overview: 'Skillift is a comprehensive learning platform designed with the mission "Launch Your Learning Journey Today". The platform combines web and mobile experiences to deliver personalized education content, featuring an intuitive interface that makes learning accessible and engaging for users of all skill levels. Built with modern design principles and focused on creating meaningful learning experiences.',
         
-        challenge: 'Cryptocurrency trading apps often overwhelm users with complex interfaces and technical jargon. New traders struggle to understand market trends while experienced traders need advanced features without clutter. The challenge was creating an app that serves both audiences while maintaining the trust and security expectations of financial applications. Additionally, presenting volatile market data in a clear, actionable format without causing decision paralysis.',
+        challenge: 'Traditional e-learning platforms often suffer from poor user engagement and high dropout rates due to overwhelming interfaces and lack of personalization. Students struggle to find relevant content and track their progress effectively. The challenge was creating a platform that motivates continuous learning while providing clear pathways for skill development. Additionally, designing for both web and mobile experiences that maintain consistency and usability across devices.',
         
-        solution: 'Designed a progressive disclosure interface that adapts to user experience levels. Implemented a clean dark theme with strategic use of green highlights to indicate positive trends and actions. Created an onboarding flow that educates new users while allowing experts to skip to advanced features. Added interactive charts with customizable timeframes and clear call-to-action buttons. Integrated educational tooltips and market insights to build user confidence in trading decisions.',
+        solution: 'Developed a clean, modern interface with personalized learning paths and progress tracking. Implemented a card-based design system that makes content digestible and easy to navigate. Created an engaging mobile app interface with intuitive course browsing and interactive learning modules. Added gamification elements and progress indicators to maintain user motivation. Designed a responsive system that works seamlessly across desktop and mobile platforms.',
         
         results: [
-          { metric: 'User Onboarding', before: '45%', after: '78%', improvement: '+73%' },
-          { metric: 'Trading Volume', before: '$0', after: '$2.1M', improvement: 'New Launch' },
-          { metric: 'Session Duration', before: '3.2 min', after: '12.7 min', improvement: '+297%' },
-          { metric: 'User Retention', before: '28%', after: '67%', improvement: '+139%' }
+          { metric: 'User Engagement', before: '0%', after: '85%', improvement: 'New Platform' },
+          { metric: 'Course Completion', before: '0%', after: '72%', improvement: 'Above Industry Average' },
+          { metric: 'Daily Active Users', before: '0', after: '15.2K', improvement: 'Strong Launch' },
+          { metric: 'User Satisfaction', before: '0', after: '4.6/5', improvement: 'Excellent Rating' }
         ],
         
-        tags: ['Mobile App', 'Cryptocurrency', 'Trading', 'FinTech', 'UI/UX Design'],
+        tags: ['EdTech', 'Mobile App', 'Web Platform', 'Learning Management', 'UI/UX Design'],
         
         images: [
-          cryptoApp,
-          cryptoApp,
-          cryptoApp
+          skillBit,
+          skillBit,
+          skillBit
         ],
         
         process: [
           {
-            phase: 'Research & Discovery',
-            description: 'Conducted extensive research on cryptocurrency trading behaviors and analyzed competitor apps to identify pain points.',
-            deliverables: ['User Interviews', 'Competitive Analysis', 'Market Research', 'User Personas']
+            phase: 'Research & Analysis',
+            description: 'Conducted extensive research on learning behaviors and analyzed existing e-learning platforms to identify improvement opportunities.',
+            deliverables: ['User Research', 'Competitive Analysis', 'Learning Behavior Study', 'Market Research']
           },
           {
-            phase: 'Design Strategy',
-            description: 'Developed a design strategy focused on simplifying complex trading concepts while maintaining professional credibility.',
-            deliverables: ['Design Strategy', 'Information Architecture', 'User Journey Maps']
+            phase: 'Strategy & Planning',
+            description: 'Developed learning experience strategy and created user personas for different types of learners.',
+            deliverables: ['UX Strategy', 'User Personas', 'Learning Journey Maps', 'Feature Prioritization']
           },
           {
-            phase: 'UI/UX Design',
-            description: 'Created wireframes and high-fidelity designs with focus on data visualization and intuitive navigation.',
-            deliverables: ['Wireframes', 'High-fidelity Mockups', 'Interactive Prototypes', 'Design System']
+            phase: 'Design & Prototyping',
+            description: 'Created comprehensive designs for both web and mobile platforms with focus on user engagement and learning effectiveness.',
+            deliverables: ['Wireframes', 'High-fidelity Designs', 'Interactive Prototypes', 'Design System']
           },
           {
-            phase: 'Testing & Iteration',
-            description: 'Conducted usability testing with both novice and experienced traders to refine the interface.',
-            deliverables: ['Usability Testing', 'A/B Testing', 'Design Iterations', 'Final Designs']
+            phase: 'Testing & Launch',
+            description: 'Conducted usability testing with target learners and refined the platform based on feedback.',
+            deliverables: ['Usability Testing', 'A/B Testing', 'Launch Strategy', 'Performance Metrics']
           }
         ],
         
-        technologies: ['Figma', 'Principle', 'After Effects', 'React Native', 'WebSocket APIs'],
+        technologies: ['Figma', 'React', 'React Native', 'Node.js', 'MongoDB'],
         
         testimonial: {
-          text: "This crypto app design perfectly balances simplicity with functionality. The interface makes trading accessible without sacrificing the advanced features we need.",
-          author: "Alex Chen",
-          role: "Senior Trader, CryptoVest"
+          text: "Skillift has transformed how our students engage with learning content. The intuitive design and personalized approach have significantly improved completion rates and student satisfaction.",
+          author: "Dr. Sarah Johnson",
+          role: "Director of Digital Learning, EduTech Institute"
         }
       }
     };

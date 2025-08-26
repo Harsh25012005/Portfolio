@@ -5,6 +5,7 @@ import macbookAir from "../../assets/MacBook Air (2022).png";
 import furnitureApp from "../../assets/furniture-app.jpg";
 import macbookPro from "../../assets/MacBook.png";
 import cryptoApp from "../../assets/crypto-app.png";
+import skillBit from "../../assets/SkillBit.png";
 
 const FeaturedProjects = () => {
 
@@ -52,6 +53,15 @@ const FeaturedProjects = () => {
       year: "2024",
       image: cryptoApp,
       bgColor: "bg-gradient-to-br from-green-900 to-black",
+      size: "large",
+    },
+    {
+      id: 6,
+      title: "Skillift Learning Platform",
+      category: "EdTech Platform",
+      year: "2025",
+      image: skillBit,
+      bgColor: "bg-gradient-to-br from-blue-600 to-purple-600",
       size: "large",
     },
   ];
