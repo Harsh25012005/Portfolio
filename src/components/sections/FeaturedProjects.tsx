@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import nikeShoe from "../../assets/nike-shoe.jpg";
+import macbookAir from "../../assets/MacBook Air (2022).png";
+import furnitureApp from "../../assets/furniture-app.jpg";
+import macbookPro from "../../assets/MacBook.png";
 
 const FeaturedProjects = () => {
 
@@ -9,7 +13,7 @@ const FeaturedProjects = () => {
       title: "Nike AR Experience",
       category: "Mobile App Design",
       year: "2024",
-      image: "/src/assets/nike-shoe.jpg",
+      image: nikeShoe,
       bgColor: "bg-gradient-to-br from-gray-900 to-gray-800",
       size: "large",
     },
@@ -18,7 +22,7 @@ const FeaturedProjects = () => {
       title: "MacBook Air Showcase",
       category: "Product Design",
       year: "2024",
-      image: "/src/assets/MacBook Air (2022).png",
+      image: macbookAir,
       bgColor: "bg-gradient-to-br from-slate-200 to-slate-100",
       size: "large",
     },
@@ -27,7 +31,7 @@ const FeaturedProjects = () => {
       title: "Furniture Design App",
       category: "UI/UX Design",
       year: "2024",
-      image: "/src/assets/furniture-app.jpg",
+      image: furnitureApp,
       bgColor: "bg-gradient-to-br from-blue-200 to-blue-100",
       size: "large",
     },
@@ -36,7 +40,7 @@ const FeaturedProjects = () => {
       title: "MacBook Pro Concept",
       category: "Product Visualization",
       year: "2024",
-      image: "/src/assets/MacBook.png",
+      image: macbookPro,
       bgColor: "bg-gradient-to-br from-gray-300 to-gray-200",
       size: "large",
     },
@@ -79,7 +83,7 @@ const FeaturedProjects = () => {
                     {/* Project preview area */}
                     <div className="aspect-[16/10] mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl">
                       <div className="relative w-full h-full flex items-center justify-center">
-                        {project.image && project.image !== "/api/placeholder/400/300" ? (
+                        {project.image ? (
                           <img 
                             src={project.image} 
                             alt={project.title}

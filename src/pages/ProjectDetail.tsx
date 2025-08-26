@@ -5,6 +5,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ExternalLink, Github, Calendar, User, Target, Zap, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import nikeShoe from "../assets/nike-shoe.jpg";
+import macbookAir from "../assets/MacBook Air (2022).png";
+import furnitureApp from "../assets/furniture-app.jpg";
+import macbookPro from "../assets/MacBook.png";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -44,9 +48,9 @@ const ProjectDetail = () => {
         tags: ['AR/VR', 'Mobile Design', 'E-commerce', 'iOS', 'Android'],
         
         images: [
-          '/src/assets/nike-shoe.jpg',
-          '/src/assets/nike-shoe.jpg',
-          '/src/assets/nike-shoe.jpg'
+          nikeShoe,
+          nikeShoe,
+          nikeShoe,
         ],
         
         process: [
@@ -107,9 +111,9 @@ const ProjectDetail = () => {
         tags: ['Product Design', 'Web Design', '3D Visualization', 'Animation'],
         
         images: [
-          '/src/assets/MacBook Air (2022).png',
-          '/src/assets/MacBook Air (2022).png',
-          '/src/assets/MacBook Air (2022).png' 
+          macbookAir,
+          macbookAir,
+          macbookAir,
         ],
         
         process: [
@@ -170,9 +174,9 @@ const ProjectDetail = () => {
         tags: ['Mobile App', 'AR/VR', 'E-commerce', 'Interior Design', 'iOS/Android'],
         
         images: [
-          '/src/assets/furniture-app.jpg',
-          '/src/assets/furniture-app.jpg',
-          '/src/assets/furniture-app.jpg'
+          furnitureApp,
+          furnitureApp,
+          furnitureApp,
         ],
         
         process: [
@@ -233,9 +237,9 @@ const ProjectDetail = () => {
         tags: ['Product Design', 'Concept Design', '3D Visualization', 'Innovation'],
         
         images: [
-          '/src/assets/MacBook.png',
-          '/src/assets/MacBook.png',
-          '/src/assets/MacBook.png'
+          macbookPro,
+          macbookPro,
+          macbookPro,
         ],
         
         process: [
