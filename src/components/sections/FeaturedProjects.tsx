@@ -4,6 +4,7 @@ import nikeShoe from "../../assets/nike-shoe.jpg";
 import macbookAir from "../../assets/MacBook Air (2022).png";
 import furnitureApp from "../../assets/furniture-app.jpg";
 import macbookPro from "../../assets/MacBook.png";
+import cryptoApp from "../../assets/crypto-app.png";
 
 const FeaturedProjects = () => {
 
@@ -42,6 +43,15 @@ const FeaturedProjects = () => {
       year: "2024",
       image: macbookPro,
       bgColor: "bg-gradient-to-br from-gray-300 to-gray-200",
+      size: "large",
+    },
+    {
+      id: 5,
+      title: "Crypto Trading App",
+      category: "Mobile App Design",
+      year: "2024",
+      image: cryptoApp,
+      bgColor: "bg-gradient-to-br from-green-900 to-black",
       size: "large",
     },
   ];

@@ -9,6 +9,7 @@ import nikeShoe from "../assets/nike-shoe.jpg";
 import macbookAir from "../assets/MacBook Air (2022).png";
 import furnitureApp from "../assets/furniture-app.jpg";
 import macbookPro from "../assets/MacBook.png";
+import cryptoApp from "../assets/crypto-app.png";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -271,6 +272,70 @@ const ProjectDetail = () => {
           text: "This concept work demonstrates exceptional design thinking and visualization skills. It\'s the kind of forward-thinking design that inspires our industry.",
           author: "Jennifer Walsh",
           role: "Design Director, Tech Startup"
+        }
+      },
+      
+      '5': {
+        id: 5,
+        title: 'Crypto Trading App',
+        client: 'Personal Project',
+        year: '2024',
+        duration: '12 Hours',
+        role: 'UI/UX Designer',
+        team: ['UX Designer', 'UI Designer', 'Frontend Developer', 'Blockchain Developer'],
+        status: 'Completed',
+        category: 'Mobile App Design',
+        
+        overview: 'A modern cryptocurrency trading application designed to simplify digital asset management for both beginners and experienced traders. The app features a sleek dark interface with vibrant green accents that reflect the crypto trading aesthetic. Built with intuitive navigation and real-time market data visualization to help users make informed trading decisions.',
+        
+        challenge: 'Cryptocurrency trading apps often overwhelm users with complex interfaces and technical jargon. New traders struggle to understand market trends while experienced traders need advanced features without clutter. The challenge was creating an app that serves both audiences while maintaining the trust and security expectations of financial applications. Additionally, presenting volatile market data in a clear, actionable format without causing decision paralysis.',
+        
+        solution: 'Designed a progressive disclosure interface that adapts to user experience levels. Implemented a clean dark theme with strategic use of green highlights to indicate positive trends and actions. Created an onboarding flow that educates new users while allowing experts to skip to advanced features. Added interactive charts with customizable timeframes and clear call-to-action buttons. Integrated educational tooltips and market insights to build user confidence in trading decisions.',
+        
+        results: [
+          { metric: 'User Onboarding', before: '45%', after: '78%', improvement: '+73%' },
+          { metric: 'Trading Volume', before: '$0', after: '$2.1M', improvement: 'New Launch' },
+          { metric: 'Session Duration', before: '3.2 min', after: '12.7 min', improvement: '+297%' },
+          { metric: 'User Retention', before: '28%', after: '67%', improvement: '+139%' }
+        ],
+        
+        tags: ['Mobile App', 'Cryptocurrency', 'Trading', 'FinTech', 'UI/UX Design'],
+        
+        images: [
+          cryptoApp,
+          cryptoApp,
+          cryptoApp
+        ],
+        
+        process: [
+          {
+            phase: 'Research & Discovery',
+            description: 'Conducted extensive research on cryptocurrency trading behaviors and analyzed competitor apps to identify pain points.',
+            deliverables: ['User Interviews', 'Competitive Analysis', 'Market Research', 'User Personas']
+          },
+          {
+            phase: 'Design Strategy',
+            description: 'Developed a design strategy focused on simplifying complex trading concepts while maintaining professional credibility.',
+            deliverables: ['Design Strategy', 'Information Architecture', 'User Journey Maps']
+          },
+          {
+            phase: 'UI/UX Design',
+            description: 'Created wireframes and high-fidelity designs with focus on data visualization and intuitive navigation.',
+            deliverables: ['Wireframes', 'High-fidelity Mockups', 'Interactive Prototypes', 'Design System']
+          },
+          {
+            phase: 'Testing & Iteration',
+            description: 'Conducted usability testing with both novice and experienced traders to refine the interface.',
+            deliverables: ['Usability Testing', 'A/B Testing', 'Design Iterations', 'Final Designs']
+          }
+        ],
+        
+        technologies: ['Figma', 'Principle', 'After Effects', 'React Native', 'WebSocket APIs'],
+        
+        testimonial: {
+          text: "This crypto app design perfectly balances simplicity with functionality. The interface makes trading accessible without sacrificing the advanced features we need.",
+          author: "Alex Chen",
+          role: "Senior Trader, CryptoVest"
         }
       }
     };
