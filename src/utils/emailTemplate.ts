@@ -3,7 +3,7 @@ const isMobileDevice = () => {
 };
 
 export const createEmailTemplate = (subject?: string) => {
-  const defaultSubject = subject || 'Project Inquiry - Portfolio Contact';
+  const defaultSubject = subject || 'Project Inquiry';
   
   const emailBody = `
 `;
@@ -29,7 +29,7 @@ export const openEmailTemplate = (subject?: string) => {
     
     // Fallback to mailto after a short delay if Gmail app doesn't open
     setTimeout(() => {
-      const mailtoUrl = `mailto:vaghelaharsh0807@gmail.com?subject=${encodeURIComponent(subject || 'Project Inquiry - Portfolio Contact')}&body=${encodeURIComponent(`
+      const mailtoUrl = `mailto:vaghelaharsh0807@gmail.com?subject=${encodeURIComponent(subject || 'Project Inquiry')}&body=${encodeURIComponent(`
 
 `)}`;
       window.location.href = mailtoUrl;
@@ -44,7 +44,7 @@ export const handleEmailClick = (event?: Event, customSubject?: string) => {
   if (event) {
     event.preventDefault();
   }
-  openEmailTemplate(customSubject || 'Contact from Portfolio');
+  openEmailTemplate(customSubject || 'Project Inquiry');
 };
 
 // Function to initialize email click handlers globally
@@ -58,7 +58,7 @@ export const initializeEmailHandlers = () => {
       event.preventDefault();
       const href = link.getAttribute('href') || '';
       const urlParams = new URLSearchParams(href.split('?')[1] || '');
-      const subject = urlParams.get('subject') || 'Contact from Portfolio';
+      const subject = urlParams.get('subject') || 'Project Inquiry';
       openEmailTemplate(subject);
     }
   });
