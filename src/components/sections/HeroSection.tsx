@@ -109,7 +109,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-background dark:bg-background flex items-center justify-center px-4 py-20 relative overflow-hidden">
+    <section className="min-h-screen bg-background dark:bg-background flex items-center justify-center px-4 py-16 sm:py-20 relative overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-accent/5 animate-gradient-xy"></div>
 
@@ -185,26 +185,26 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="w-full max-w-6xl mx-auto relative z-10 text-center">
-        <div className={`space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
+      <div className="w-full max-w-6xl mx-auto relative z-10 text-center px-4">
+        <div className={`space-y-6 sm:space-y-8 ${isVisible ? "fade-in" : "opacity-0"}`}>
           {/* Badge and Heading Section */}
-          <div className="space-y-[14px]">
+          <div className="space-y-4 sm:space-y-6">
             {/* Category Badge */}
             <div className="inline-flex items-center justify-center">
-              <div className="bg-card/50 backdrop-blur-sm border border-primary/30 text-muted-foreground px-4 py-2 rounded-full text-sm font-medium tracking-wide">
-                UI/UX Desginer
+              <div className="bg-card/50 backdrop-blur-sm border border-primary/30 text-muted-foreground px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide">
+                UI/UX Designer
               </div>
             </div>
 
             {/* Main Headline and Subtitle */}
-            <div className="space-y-3">
-              <h1 className="text-7xl font-bold leading-tight tracking-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
                 <span className="text-primary">Creative</span>{" "}
                 <span className="text-foreground">Designs</span>
               </h1>
 
-              <div className="max-w-lg mx-auto">
-                <p className="text-18px text-muted-foreground leading-relaxed">
+              <div className="max-w-lg mx-auto px-4 sm:px-0">
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                   Great design happens when imagination meets purpose, shaping
                   experiences that are simple, human, and truly impactful.
                 </p>
@@ -213,17 +213,16 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="pt-2 flex flex-col sm:flex-row gap-4 items-center justify-center">
-            {/* Primary CTA */}
+          <div className="pt-2 flex flex-col items-center justify-center">
             <Link to="/contact">
               <Button
                 size="lg"
-                className="relative bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:from-primary/90 hover:via-primary/90 hover:to-accent/90 p-6 rounded-full font-semibold group transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/30 text-lg hover:scale-105 overflow-hidden"
+                className="relative bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:from-primary/90 hover:via-primary/90 hover:to-accent/90 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold group transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/30 text-base sm:text-lg hover:scale-105 overflow-hidden"
               >
                 {/* Shimmer effect */}
                 <div className="absolute inset-0 -top-1 -bottom-1 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
                 <span className="relative z-10">Start a project</span>
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300 relative z-10" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300 relative z-10" />
               </Button>
             </Link>
           </div>

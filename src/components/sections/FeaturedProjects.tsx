@@ -67,28 +67,28 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <section className="py-32 bg-background text-foreground relative overflow-hidden">
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="space-y-16">
+    <section className="py-16 sm:py-24 lg:py-32 bg-background text-foreground relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div className="space-y-12 sm:space-y-16">
           {/* Section Header */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6 text-center sm:text-left">
             <div className="inline-flex items-center space-x-2 mb-4">
               <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span className="text-primary text-sm font-medium tracking-wider uppercase">
+              <span className="text-primary text-xs sm:text-sm font-medium tracking-wider uppercase">
                 MY WORK
               </span>
             </div>
-            <h2 className="hero-text text-5xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               Selected Projects
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl">
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto sm:mx-0">
               Here's a curated selection showcasing my expertise and the
               achieved results.
             </p>
           </div>
 
-          {/* Projects Masonry Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {featuredProjects.map((project, index) => (
               <Link
                 key={project.id}
@@ -96,23 +96,20 @@ const FeaturedProjects = () => {
                 className="group block"
               >
                 <div className="relative overflow-hidden">
-                  {/* Gradient overlay removed */}
-
                   {/* Content */}
                   <div className="relative">
                     {/* Project preview area */}
-                    <div className="aspect-[16/10] mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl">
+                    <div className="aspect-[16/10] mb-4 sm:mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl hover:border-primary/30 transition-colors duration-300">
                       <div className="relative w-full h-full flex items-center justify-center">
                         {project.image ? (
                           <img 
                             src={project.image} 
                             alt={project.title}
-                            className="w-full h-full object-cover rounded-xl"
+                            className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
                           />
                         ) : (
-                          /* Project title display for placeholder projects */
                           <div className="text-center">
-                            <div className="text-muted-foreground text-2xl font-bold mb-2">
+                            <div className="text-muted-foreground text-xl sm:text-2xl font-bold mb-2">
                               {project.title}
                             </div>
                             <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto opacity-60" />
@@ -122,9 +119,9 @@ const FeaturedProjects = () => {
                     </div>
 
                     {/* Project info */}
-                    <div className="flex items-end justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-foreground mb-1">
+                    <div className="flex items-end justify-between gap-4">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 truncate">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground text-sm font-medium">
@@ -132,8 +129,8 @@ const FeaturedProjects = () => {
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <span className="text-muted-foreground text-xs font-medium px-3 py-1 rounded-full bg-muted border border-border">
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <span className="text-muted-foreground text-xs font-medium px-2 sm:px-3 py-1 rounded-full bg-muted border border-border">
                           {project.year}
                         </span>
                       </div>

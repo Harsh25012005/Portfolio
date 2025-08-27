@@ -65,45 +65,44 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-32 bg-background">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="space-y-16">
+    <section className="py-16 sm:py-24 lg:py-32 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="space-y-12 sm:space-y-16">
           {/* Section Header */}
-          <div className="space-y-6">
-            <p className="text-sm text-muted-foreground font-medium uppercase tracking-wider">
-              THOUSANDS TRUST FAIRSTONE
+          <div className="space-y-4 sm:space-y-6 text-center sm:text-left">
+            <p className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wider">
+              CLIENT TESTIMONIALS
             </p>
-            <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight max-w-2xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-foreground leading-tight max-w-2xl mx-auto sm:mx-0">
               Don't take our word for it,<br />
               see what our clients say
             </h2>
-            <p className="text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl mx-auto sm:mx-0">
               We're honored by the feedback, and it fuels our commitment to delivering exceptional 
-              financial services. Read the reviews to hear firsthand how Fairstone is making a positive 
-              impact on people's lives. Your trust is our greatest achievement.
+              design services. Read the reviews to hear firsthand how our work is making a positive 
+              impact on businesses. Your trust is our greatest achievement.
             </p>
           </div>
 
-          {/* Testimonials Cards - Infinite Scroll */}
+          {/* Testimonials Cards - Mobile Responsive */}
           <div className="relative overflow-hidden">
-            <div className="flex gap-6 animate-scroll-testimonials">
+            <div className="flex gap-4 sm:gap-6 animate-scroll-testimonials">
               {duplicatedTestimonials.map((testimonial, index) => (
                 <div 
                   key={`${testimonial.id}-${index}`} 
-                  className="bg-card border border-border rounded-lg p-6 flex-shrink-0"
-                  style={{ width: 'calc((100vw - 8rem) / 3 - 1rem)', minWidth: '300px' }}
+                  className="bg-card border border-border rounded-lg p-4 sm:p-6 flex-shrink-0 w-80 sm:w-96"
                 >
                   <StarRating rating={testimonial.rating} />
                   
-                  <blockquote className="text-foreground text-sm leading-relaxed mb-6">
+                  <blockquote className="text-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
                     {testimonial.content}
                   </blockquote>
 
                   <div className="space-y-1">
-                    <p className="font-semibold text-foreground text-sm">
+                    <p className="font-semibold text-foreground text-sm sm:text-base">
                       {testimonial.author}
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {testimonial.date}
                     </p>
                   </div>
@@ -112,10 +111,10 @@ const Testimonials = () => {
             </div>
             
             {/* Left fade gradient */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
             
             {/* Right fade gradient */}
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
           </div>
         </div>
       </div>
