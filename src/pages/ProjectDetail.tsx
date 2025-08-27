@@ -18,6 +18,8 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
   }, []);
 
   // Project data based on ID
@@ -368,7 +370,7 @@ const ProjectDetail = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 pt-20 sm:pt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 sm:pb-12 lg:pb-16">
         {/* Back Navigation */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -426,23 +428,23 @@ const ProjectDetail = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl w-full">
-            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
-              <User className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
-              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Client</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">{project.client}</p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 max-w-4xl w-full">
+            <div className="bg-card rounded-md sm:rounded-lg md:rounded-xl p-2 sm:p-4 md:p-6 border border-border/20 text-center">
+              <User className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary mx-auto mb-1 sm:mb-2 md:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-xs sm:text-sm md:text-base">Client</h3>
+              <p className="text-muted-foreground text-xs sm:text-xs md:text-sm">{project.client}</p>
             </div>
             
-            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
-              <Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
-              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Duration</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">{project.duration}</p>
+            <div className="bg-card rounded-md sm:rounded-lg md:rounded-xl p-2 sm:p-4 md:p-6 border border-border/20 text-center">
+              <Calendar className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary mx-auto mb-1 sm:mb-2 md:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-xs sm:text-sm md:text-base">Duration</h3>
+              <p className="text-muted-foreground text-xs sm:text-xs md:text-sm">{project.duration}</p>
             </div>
             
-            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
-              <Target className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
-              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Role</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm">{project.role}</p>
+            <div className="bg-card rounded-md sm:rounded-lg md:rounded-xl p-2 sm:p-4 md:p-6 border border-border/20 text-center">
+              <Target className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8 text-primary mx-auto mb-1 sm:mb-2 md:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-xs sm:text-sm md:text-base">Role</h3>
+              <p className="text-muted-foreground text-xs sm:text-xs md:text-sm">{project.role}</p>
             </div>
           </div>
         </motion.section>
