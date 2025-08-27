@@ -49,7 +49,7 @@ const Footer = () => {
       name: 'Email', 
       href: '#',
       icon: <Mail className="w-4 h-4" />,
-      onClick: (e: React.MouseEvent) => handleEmailClick(e.nativeEvent, 'Contact from Footer')
+      onClick: (e: React.MouseEvent) => handleEmailClick(e.nativeEvent, 'Project Inquiry')
     },
   ];
 
