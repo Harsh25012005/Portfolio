@@ -38,11 +38,11 @@ const Contact = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center px-4">
-      <div className="w-full max-w-5xl mx-auto py-8">
+    <main className="min-h-screen bg-background flex items-center justify-center px-4 py-28">
+      <div className="w-full max-w-5xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4">
             Let's Connect
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
@@ -51,11 +51,11 @@ const Contact = () => {
         </div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
           {contactMethods.map((method, index) => (
             <Card 
               key={method.title}
-              className={`p-4 sm:p-6 md:p-8 text-center transition-all duration-300 hover:shadow-lg ${
+              className={`p-4 sm:p-6 md:p-6 text-center transition-all duration-300 hover:shadow-lg ${
                 method.primary 
                   ? 'border-primary/50 bg-primary/5 hover:bg-primary/10' 
                   : 'hover:border-primary/30'
