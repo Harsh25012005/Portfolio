@@ -31,28 +31,7 @@ export const openEmailTemplate = (subject?: string) => {
     setTimeout(() => {
       const mailtoUrl = `mailto:vaghelaharsh0807@gmail.com?subject=${encodeURIComponent(subject || 'Project Inquiry - Portfolio Contact')}&body=${encodeURIComponent(`Hi Harsh,
 
-I hope this email finds you well. I came across your portfolio and I'm interested in discussing a potential project.
-
-Project Details:
-- Project Type: 
-- Timeline: 
-- Budget Range: 
-
-About Me/Company:
-- Name: Vaghela Harsh
-- Location: Gujarat
-- Email: vaghelaharsh0807@gmail.com
-
-Project Description:
-[Please describe your project requirements, goals, and any specific features you need]
-
-Additional Information:
-[Any other relevant details or questions]
-
-I look forward to hearing from you and discussing how we can work together.
-
-Best regards,
-Harsh Vaghela`)}`;
+`)}`;
       window.location.href = mailtoUrl;
     }, 1000);
   } else {
