@@ -5,8 +5,7 @@ const isMobileDevice = () => {
 export const createEmailTemplate = (subject?: string) => {
   const defaultSubject = subject || 'Project Inquiry - Portfolio Contact';
   
-  const emailBody = `Hi Harsh,
-
+  const emailBody = `
 `;
 
   // For mobile devices, use Gmail app deep link
