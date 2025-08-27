@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Mail, Code2, Heart } from 'lucide-react';
+import { handleEmailClick } from '@/utils/emailTemplate';
 
 // Dribbble icon component
 const DribbbleIcon = ({ className }: { className?: string }) => (
@@ -46,8 +47,9 @@ const Footer = () => {
     },
     { 
       name: 'Email', 
-      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=Project%20Inquiry&body=Hi%20Harsh,%0D%0A%0D%0AI%27m%20interested%20in%20working%20with%20you%20on%20a%20project.%20Here%20are%20the%20details:%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AProject%20Type:%20%0D%0ATimeline:%20%0D%0ABudget%20Range:%20%0D%0A%0D%0AProject%20Description:%0D%0A%0D%0A%0D%0ABest%20regards,',
-      icon: <Mail className="w-4 h-4" />
+      href: '#',
+      icon: <Mail className="w-4 h-4" />,
+      onClick: (e: React.MouseEvent) => handleEmailClick(e.nativeEvent, 'Contact from Footer')
     },
   ];
 
@@ -82,10 +84,11 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  target="_blank"
+                  target={social.name === 'Email' ? '_self' : '_blank'}
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-accent/50"
                   aria-label={social.name}
+                  onClick={social.onClick}
                 >
                   {social.icon}
                 </a>
@@ -117,9 +120,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href='https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=Project%20Inquiry&body=Hi%20Harsh,%0D%0A%0D%0AI%27m%20interested%20in%20working%20with%20you%20on%20a%20project.%20Here%20are%20the%20details:%0D%0A%0D%0AName:%20%0D%0AEmail:%20%0D%0AProject%20Type:%20%0D%0ATimeline:%20%0D%0ABudget%20Range:%20%0D%0A%0D%0AProject%20Description:%0D%0A%0D%0A%0D%0ABest%20regards,'
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:vaghelaharsh0807@gmail.com"
                   className="text-muted-foreground text-sm hover:text-foreground transition-colors hover:underline underline-offset-4 flex items-start md:items-center space-x-2"
                 >
                   <Mail className="w-4 h-4 mt-1 md:mt-0 flex-shrink-0" />

@@ -38,3 +38,28 @@ export const openEmailTemplate = (subject?: string) => {
     window.open(emailUrl, '_blank');
   }
 };
+
+// Global function to handle any email click throughout the website
+export const handleEmailClick = (event?: Event, customSubject?: string) => {
+  if (event) {
+    event.preventDefault();
+  }
+  openEmailTemplate(customSubject || 'Contact from Portfolio');
+};
+
+// Function to initialize email click handlers globally
+export const initializeEmailHandlers = () => {
+  // Handle all mailto links
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    const link = target.closest('a[href^="mailto:vaghelaharsh0807@gmail.com"]');
+    
+    if (link) {
+      event.preventDefault();
+      const href = link.getAttribute('href') || '';
+      const urlParams = new URLSearchParams(href.split('?')[1] || '');
+      const subject = urlParams.get('subject') || 'Contact from Portfolio';
+      openEmailTemplate(subject);
+    }
+  });
+};
