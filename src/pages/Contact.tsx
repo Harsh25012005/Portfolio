@@ -1,245 +1,118 @@
-import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { Mail, MapPin, Send, Clock, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Clock, Send } from 'lucide-react';
+import { openEmailTemplate } from '@/utils/emailTemplate';
+
+interface ContactMethod {
+  icon: any;
+  title: string;
+  description: string;
+  value: string;
+  action?: string | (() => void);
+  primary: boolean;
+}
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Create email content
-      const emailContent = `
-        New Contact Form Submission
-        
-        Name: ${formData.name}
-        Email: ${formData.email}
-        Subject: ${formData.subject}
-        
-        Message:
-        ${formData.message}
-        
-        ---
-        Sent from Portfolio Contact Form
-      `;
-      
-      // Create Gmail compose link with pre-filled content
-      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=${encodeURIComponent('Portfolio Contact: ' + formData.subject)}&body=${encodeURIComponent(emailContent)}`;
-      
-      // Open Gmail
-      window.open(gmailLink, '_blank');
-      
-      // Also log the form data for backup
-      console.log('Contact form submission:', {
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        timestamp: new Date().toISOString()
-      });
-      
-      toast({
-        title: "Email client opened!",
-        description: "Your default email app should open with the message pre-filled. Please send it to complete your inquiry.",
-      });
-      
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Error processing form:', error);
-      toast({
-        title: "Error",
-        description: "There was an issue processing your message. Please try emailing directly at vaghelaharsh0807@gmail.com",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const contactInfo = [
+  const contactMethods: ContactMethod[] = [
     {
       icon: Mail,
-      label: 'Email',
+      title: 'Email Me',
+      description: 'Send me an email and I\'ll get back to you',
       value: 'vaghelaharsh0807@gmail.com',
-      href: 'mailto:vaghelaharsh0807@gmail.com'
+      action: () => openEmailTemplate('Project Inquiry from Portfolio'),
+      primary: true
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Gujarat, India'
+      title: 'Location',
+      description: 'Based in Gujarat, India',
+      value: 'Available for remote work worldwide',
+      primary: false
     },
     {
       icon: Clock,
-      label: 'Response Time',
-      value: 'Within 24 hours'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/Harsh25012005'
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com/in/harsh-vaghela'
-    },
-    {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com/harsh_vaghela'
+      title: 'Response Time',
+      description: 'I typically respond within',
+      value: '24 hours',
+      primary: false
     }
   ];
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-40 max-w-4xl">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In Touch
+    <main className="min-h-screen bg-background flex items-center justify-center">
+      <div className="container mx-auto px-6 max-w-5xl">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Let's Connect
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Have a project in mind or just want to chat? I'd love to hear from you.
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12">
-          
-          {/* Contact Form */}
-          <div>
-            <Card className="p-6 border border-border">
-              <h2 className="text-2xl font-semibold mb-6">Send a Message</h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your name"
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="your@email.com"
-                      className="mt-1"
-                    />
-                  </div>
+        {/* Contact Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {contactMethods.map((method, index) => (
+            <Card 
+              key={method.title}
+              className={`p-8 text-center transition-all duration-300 hover:shadow-lg ${
+                method.primary 
+                  ? 'border-primary/50 bg-primary/5 hover:bg-primary/10' 
+                  : 'hover:border-primary/30'
+              }`}
+            >
+              <div className="flex flex-col items-center space-y-6">
+                <div className={`p-4 rounded-full ${
+                  method.primary 
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-muted text-muted-foreground'
+                }`}>
+                  <method.icon className="w-6 h-6" />
                 </div>
                 
-                <div>
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Project inquiry"
-                    className="mt-1"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    placeholder="Tell me about your project..."
-                    className="mt-1 resize-none"
-                  />
-                </div>
-                
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full"
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin"></div>
-                      <span>Sending...</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center space-x-2">
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold">{method.title}</h3>
+                  <p className="text-muted-foreground text-sm">
+                    {method.description}
+                  </p>
+                  
+                  {method.action ? (
+                    <button 
+                      onClick={() => {
+                        if (typeof method.action === 'function') {
+                          method.action();
+                        } else if (typeof method.action === 'string') {
+                          window.open(method.action, '_blank');
+                        }
+                      }}
+                      className="inline-flex items-center space-x-2 text-primary hover:underline font-medium"
+                    >
+                      <span>{method.value}</span>
                       <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </div>
+                    </button>
+                  ) : (
+                    <p className="font-medium text-foreground">{method.value}</p>
                   )}
-                </Button>
-              </form>
+                </div>
+              </div>
             </Card>
-          </div>
+          ))}
+        </div>
 
-          {/* Contact Information */}
-          <div className="space-y-6">
-            
-            {/* Contact Details */}
-            <div className="space-y-6">
-              {contactInfo.map((info) => (
-                <Card key={info.label} className="p-4 border border-border">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      <info.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-medium">{info.label}</h3>
-                      {info.href ? (
-                        <a 
-                          href={info.href}
-                          className="text-primary hover:underline"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-muted-foreground">{info.value}</p>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="inline-block p-8 bg-muted/50 rounded-2xl">
+            <h2 className="text-2xl font-semibold mb-4">Ready to Start?</h2>
+            <p className="text-muted-foreground mb-6">
+              Let's discuss your project and bring your ideas to life.
+            </p>
+            <button 
+              onClick={() => openEmailTemplate('Project Inquiry from Portfolio')}
+              className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Get In Touch</span>
+            </button>
           </div>
         </div>
       </div>
