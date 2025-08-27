@@ -6,16 +6,14 @@ export const createEmailTemplate = (subject?: string) => {
 I hope this email finds you well. I came across your portfolio and I'm interested in discussing a potential project.
 
 Project Details:
-- Project Type: [Please specify - Web Development, Mobile App, etc.]
-- Timeline: [Expected timeline]
-- Budget Range: [Your budget range]
+- Project Type: 
+- Timeline: 
+- Budget Range: 
 
 About Me/Company:
-- Name: [Your name]
-- Company: [Company name if applicable]
-- Location: [Your city/country]
-- Email: [Your email address]
-- Phone: [Your phone number - optional]
+- Name: Vaghela Harsh
+- Location: Gujarat
+- Email: vaghelaharsh0807@gmail.com
 
 Project Description:
 [Please describe your project requirements, goals, and any specific features you need]
