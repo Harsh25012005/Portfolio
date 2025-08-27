@@ -29,7 +29,7 @@ export const openEmailTemplate = (subject?: string) => {
     
     // Fallback to mailto after a short delay if Gmail app doesn't open
     setTimeout(() => {
-      const mailtoUrl = `mailto:vaghelaharsh0807@gmail.com?subject=${encodeURIComponent(subject || 'Project Inquiry - Portfolio Contact')}&body=${encodeURIComponent(`Hi Harsh,
+      const mailtoUrl = `mailto:vaghelaharsh0807@gmail.com?subject=${encodeURIComponent(subject || 'Project Inquiry - Portfolio Contact')}&body=${encodeURIComponent(`
 
 `)}`;
       window.location.href = mailtoUrl;
