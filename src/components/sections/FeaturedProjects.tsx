@@ -71,9 +71,9 @@ const FeaturedProjects = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <div className="space-y-12 sm:space-y-16">
           {/* Section Header */}
-          <div className="space-y-4 sm:space-y-6 text-center sm:text-left">
+          <div className="space-y-4 sm:space-y-6 text-center sm:text-left stagger-item">
             <div className="inline-flex items-center space-x-2 mb-4">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               <span className="text-primary text-xs sm:text-sm font-medium tracking-wider uppercase">
                 MY WORK
               </span>
@@ -93,19 +93,20 @@ const FeaturedProjects = () => {
               <Link
                 key={project.id}
                 to={`/projects/${project.id}`}
-                className="group block"
+                className={`group block stagger-item opacity-0 transform translate-y-8`}
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
                 <div className="relative overflow-hidden">
                   {/* Content */}
                   <div className="relative">
                     {/* Project preview area */}
-                    <div className="aspect-[16/10] mb-4 sm:mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl hover:border-primary/30 transition-colors duration-300">
+                    <div className="aspect-[16/10] mb-4 sm:mb-6 border border-border flex items-center justify-center overflow-hidden rounded-xl hover:border-primary/30 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-primary/10 group-hover:-translate-y-2">
                       <div className="relative w-full h-full flex items-center justify-center">
                         {project.image ? (
                           <img 
                             src={project.image} 
                             alt={project.title}
-                            className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover rounded-xl group-hover:scale-110 transition-transform duration-700 ease-out"
                           />
                         ) : (
                           <div className="text-center">
@@ -115,13 +116,15 @@ const FeaturedProjects = () => {
                             <div className="w-12 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto opacity-60" />
                           </div>
                         )}
+                        {/* Overlay gradient on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                       </div>
                     </div>
 
                     {/* Project info */}
                     <div className="flex items-end justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 truncate">
+                        <h3 className="text-lg sm:text-xl font-bold text-foreground mb-1 truncate group-hover:text-primary transition-colors duration-300">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground text-sm font-medium">
@@ -130,7 +133,7 @@ const FeaturedProjects = () => {
                       </div>
 
                       <div className="flex items-center gap-3 flex-shrink-0">
-                        <span className="text-muted-foreground text-xs font-medium px-2 sm:px-3 py-1 rounded-full bg-muted border border-border">
+                        <span className="text-muted-foreground text-xs font-medium px-2 sm:px-3 py-1 rounded-full bg-muted border border-border group-hover:bg-primary/10 group-hover:border-primary/30 transition-all duration-300">
                           {project.year}
                         </span>
                       </div>
