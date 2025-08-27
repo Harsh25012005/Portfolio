@@ -368,7 +368,7 @@ const ProjectDetail = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-16 pt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 pt-20 sm:pt-24">
         {/* Back Navigation */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -376,7 +376,7 @@ const ProjectDetail = () => {
           transition={{ duration: 0.5 }}
         >
           <Link to="/">
-            <Button variant="ghost" className="mb-12">
+            <Button variant="ghost" className="mb-8 sm:mb-12">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Button>
@@ -385,32 +385,32 @@ const ProjectDetail = () => {
 
         {/* Project Header */}
         <motion.header 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h1 className="hero-text mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             {project.title.split(' ').map((word, index) => (
-              <span key={index} className={index === project.title.split(' ').length - 1 ? 'brand-accent' : ''}>
+              <span key={index} className={index === project.title.split(' ').length - 1 ? 'text-primary' : ''}>
                 {word}{index < project.title.split(' ').length - 1 ? ' ' : ''}
               </span>
             ))}
           </h1>
           
-          <p className="text-body text-xl max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
             {project.overview}
           </p>
         </motion.header>
 
         {/* Hero Image */}
         <motion.section 
-          className="mb-20"
+          className="mb-12 sm:mb-16 lg:mb-20"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <div className="aspect-video rounded-2xl overflow-hidden surface-subtle border border-border/20">
+          <div className="aspect-video rounded-lg sm:rounded-xl lg:rounded-2xl overflow-hidden bg-card border border-border/20">
             <img
               src={project.images[0]}
               alt={project.title}
@@ -421,65 +421,65 @@ const ProjectDetail = () => {
 
         {/* Project Info Cards */}
         <motion.section 
-          className="flex justify-center mb-20"
+          className="flex justify-center mb-12 sm:mb-16 lg:mb-20"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
-            <div className="surface-elevated rounded-xl p-6 border border-border/20 text-center">
-              <User className="h-8 w-8 brand-accent mx-auto mb-3" />
-              <h3 className="font-semibold text-foreground mb-1">Client</h3>
-              <p className="text-body text-sm">{project.client}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl w-full">
+            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
+              <User className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Client</h3>
+              <p className="text-muted-foreground text-xs sm:text-sm">{project.client}</p>
             </div>
             
-            <div className="surface-elevated rounded-xl p-6 border border-border/20 text-center">
-              <Calendar className="h-8 w-8 brand-accent mx-auto mb-3" />
-              <h3 className="font-semibold text-foreground mb-1">Duration</h3>
-              <p className="text-body text-sm">{project.duration}</p>
+            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
+              <Calendar className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Duration</h3>
+              <p className="text-muted-foreground text-xs sm:text-sm">{project.duration}</p>
             </div>
             
-            <div className="surface-elevated rounded-xl p-6 border border-border/20 text-center">
-              <Target className="h-8 w-8 brand-accent mx-auto mb-3" />
-              <h3 className="font-semibold text-foreground mb-1">Role</h3>
-              <p className="text-body text-sm">{project.role}</p>
+            <div className="bg-card rounded-lg sm:rounded-xl p-4 sm:p-6 border border-border/20 text-center">
+              <Target className="h-6 w-6 sm:h-8 sm:w-8 text-primary mx-auto mb-2 sm:mb-3" />
+              <h3 className="font-semibold text-foreground mb-1 text-sm sm:text-base">Role</h3>
+              <p className="text-muted-foreground text-xs sm:text-sm">{project.role}</p>
             </div>
           </div>
         </motion.section>
 
         {/* Challenge & Solution */}
         <motion.section 
-          className="grid lg:grid-cols-2 gap-8 mb-20"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="surface-elevated rounded-2xl p-8 border border-border/20">
-            <h2 className="text-3xl font-bold text-foreground mb-6">The Challenge</h2>
-            <p className="text-body leading-relaxed text-lg">{project.challenge}</p>
+          <div className="bg-card rounded-lg sm:rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-border/20">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-4 sm:mb-6">The Challenge</h2>
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg">{project.challenge}</p>
           </div>
           
-          <div className="surface-elevated rounded-2xl p-8 border border-border/20">
-            <h2 className="text-3xl font-bold text-foreground mb-6">The Solution</h2>
-            <p className="text-body leading-relaxed text-lg">{project.solution}</p>
+          <div className="bg-card rounded-lg sm:rounded-xl lg:rounded-2xl p-6 sm:p-8 border border-border/20">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-4 sm:mb-6">The Solution</h2>
+            <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg">{project.solution}</p>
           </div>
         </motion.section>
 
         {/* Testimonial */}
         {project.testimonial && (
           <motion.section 
-            className="mb-20"
+            className="mb-12 sm:mb-16 lg:mb-20"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
-            <div className="surface-elevated rounded-2xl p-12 border border-border/20 text-center max-w-4xl mx-auto">
-              <blockquote className="text-2xl text-body italic leading-relaxed mb-8">
+            <div className="bg-card rounded-lg sm:rounded-xl lg:rounded-2xl p-6 sm:p-8 lg:p-12 border border-border/20 text-center max-w-4xl mx-auto">
+              <blockquote className="text-lg sm:text-xl lg:text-2xl text-muted-foreground italic leading-relaxed mb-6 sm:mb-8">
                 "{project.testimonial.text}"
               </blockquote>
               <div>
-                <p className="font-bold text-foreground text-lg">{project.testimonial.author}</p>
-                <p className="text-body">{project.testimonial.role}</p>
+                <p className="font-bold text-foreground text-base sm:text-lg">{project.testimonial.author}</p>
+                <p className="text-muted-foreground text-sm sm:text-base">{project.testimonial.role}</p>
               </div>
             </div>
           </motion.section>
@@ -491,7 +491,7 @@ const ProjectDetail = () => {
       
       {/* CTA Section - Full Width */}
       <motion.section 
-        className="py-32 bg-gradient-to-br from-card via-background to-muted relative overflow-hidden"
+        className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-card via-background to-muted relative overflow-hidden"
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.9 }}
@@ -521,29 +521,29 @@ const ProjectDetail = () => {
           {/* Radial gradient for depth */}
           <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-card/20"></div>
           
-          <div className="container mx-auto px-4 max-w-4xl relative z-10">
-            <div className="text-center space-y-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10">
+            <div className="text-center space-y-8 sm:space-y-12">
               {/* Main Heading */}
-              <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <div className="space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight px-4">
                   Let's Design Something Extraordinary Together
                 </h2>
-                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                   I turn ideas into experiences that people love. Ready to create your next big story?
                 </p>
               </div>
 
               {/* CTA Button */}
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <Link to="/contact">
                   <Button
                     size="lg"
-                    className="relative bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:from-primary/90 hover:via-primary/90 hover:to-accent/90 p-6 rounded-full font-semibold group transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/30 text-lg hover:scale-105 overflow-hidden"
+                    className="relative bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:from-primary/90 hover:via-primary/90 hover:to-accent/90 px-6 sm:px-8 py-3 sm:py-4 lg:py-6 rounded-full font-semibold group transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-primary/30 text-base sm:text-lg hover:scale-105 overflow-hidden"
                   >
                     {/* Shimmer effect */}
                     <div className="absolute inset-0 -top-1 -bottom-1 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
                     <span className="relative z-10">Get Started</span>
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300 relative z-10" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-2 group-hover:scale-110 transition-all duration-300 relative z-10" />
                   </Button>
                 </Link>
               </div>
