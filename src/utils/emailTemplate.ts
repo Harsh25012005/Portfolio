@@ -24,7 +24,7 @@ Additional Information:
 I look forward to hearing from you and discussing how we can work together.
 
 Best regards,
-[Your name]`;
+Harsh Vaghela`;
 
   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=vaghelaharsh0807@gmail.com&su=${encodeURIComponent(defaultSubject)}&body=${encodeURIComponent(emailBody)}`;
   
